@@ -26,7 +26,6 @@ Read-only permissions. Set as a required check on `main`.
 | Pipeline with sketchy-helper | script never runs, install-script check fails |
 | Pipeline with `lodash@4.17.20` | install-script check passes, `npm audit` fails |
 
-| Pipeline with `lodash@4.17.20` | install-script check passes, `npm audit` fails |
 
 ---
 
