@@ -30,14 +30,14 @@ Read-only permissions. Set as a required check on `main`.
 
 ---
 
-**Malicious install script blocked (PR #1):**
+**Malicious install script blocked:**
 
 
 <img width="2764" height="1298" alt="Screenshot 2026-10-07 231658" src="https://github.com/user-attachments/assets/99773755-db6c-4157-bd35-60e7babdebd4" />
 
 ---
 
-**Known-vulnerable package blocked (PR #2):**
+**Known-vulnerable package blocked:**
 
 
 <img width="2850" height="1362" alt="Screenshot 2026-10-07 232325" src="https://github.com/user-attachments/assets/eff96b25-ec4b-4274-8edf-2a59bfa6cc6d" />
