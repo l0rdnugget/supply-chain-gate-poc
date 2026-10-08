@@ -1,0 +1,40 @@
+name: supply-chain-gate
+
+# Run on every pull request into main, and on pushes to main.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Least privilege: this job only needs to read the code.
+permissions:
+  contents: read
+
+jobs:
+  supply-chain-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Install exactly what's in package-lock.json, and never run
+      # install-time scripts (preinstall/install/postinstall) in CI.
+      - name: Install dependencies (lockfile only, no scripts)
+        run: npm ci --ignore-scripts
+
+      # Gate 1: fail if any dependency has an install script that
+      # hasn't been reviewed and added to the allowlist.
+      - name: Gate on unreviewed install scripts
+        run: node scripts/check-install-scripts.js
+
+      # Gate 2: fail on known High/Critical vulnerabilities (SCA).
+      - name: Gate on known vulnerable dependencies
+        run: npm audit --audit-level=high

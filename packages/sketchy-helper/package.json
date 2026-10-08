@@ -1,0 +1,9 @@
+{
+  "name": "sketchy-helper",
+  "version": "1.0.0",
+  "description": "SIMULATED malicious package for a supply chain demo. Harmless: it only writes a local file.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  }
+}
